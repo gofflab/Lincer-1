@@ -6,7 +6,22 @@ try:
     ref_gtf = sys.argv[2]
     lnc_gtf = sys.argv[3]
 except IndexError:
-    print 'Usage: %s SAMPLE_SHEET REFERENCE_GTF LNCRNA_GTF' % sys.argv[0]
+    print '''Usage:
+    %s SAMPLE_SHEET REFERENCE_GTF LNCRNA_GTF
+
+    SAMPLE_SHEET is a two-column tab delimited table with no header, which maps
+    sample names to paths of GTFs containing de novo transcript assemblies from,
+    eg, Cufflinks.
+
+    Column  Column
+    Number  Name         Example           Description
+    ------  -----------  ----------------  -----------------------------------
+    1       sample_name  WT_day0_rep1      the condition label for this sample
+    2       gtf_path     WT_day0_rep1.gtf  path to gtf of de novo transcripts
+
+    REFERENCE_GTF contains all annotated transcripts.
+    LNCRNA_GTF contains all known lncRNA transcripts.
+    ''' % sys.argv[0].split('/')[-1]
     sys.exit(1)
 
 import pandas as pd
