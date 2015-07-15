@@ -17,7 +17,17 @@ import csv
 from glob import glob
 
 def load_sample_sheet(sample_sheet):
+    '''
+    Load the sample sheet.
 
+    Expected format (no header):
+    [sample_name]\t[path_to_gtf]
+
+    Returns a DataFrame with:
+    * sample name (index)
+    * path to input gtf
+    * path to output gtf
+    '''
     print >> sys.stderr, 'Loading sample sheet.'
     print >> sys.stderr, '  src: %s' % sample_sheet
 
