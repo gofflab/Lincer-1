@@ -280,7 +280,7 @@ def fold_novel_lncs_into_input_gtfs(lnc_gtf, out_gtf):
     # 7. Convert table to gtf; write to disk.
     #
     df[8] = 'gene_id "' + df.gene_id + '"; transcript_id "' + df.transcript_id + '"; gene_name "' + df.gene_name + '";'
-    df = df[range(9)]
+    df = df.loc[:, range(9)]
     df.to_csv(out_gtf, sep='\t', header=None, index=None, quoting=csv.QUOTE_NONE)
 
 
